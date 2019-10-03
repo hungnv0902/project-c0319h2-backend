@@ -18,5 +18,5 @@ public class CreateUserForm {
     private String passWord;
     @Email
     private String email;
-    private Set<Role> role;
+    private Set<String> role;
 }
