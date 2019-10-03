@@ -1,6 +1,6 @@
-package com.codegym.backendproject.service.jwt;
+package com.codegym.c0319h2.quanlycongty.service.jwt;
 
-import com.codegym.backendproject.service.securityService.UserPrinciple;
+import com.codegym.c0319h2.quanlycongty.service.securityService.UserPrinciple;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
