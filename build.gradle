@@ -43,6 +43,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-digester3
+    compile group: 'org.apache.commons', name: 'commons-digester3', version: '3.2'
+
 
     compile("io.springfox:springfox-swagger2:2.6.1")
     compile("io.springfox:springfox-swagger-ui:2.6.1")
