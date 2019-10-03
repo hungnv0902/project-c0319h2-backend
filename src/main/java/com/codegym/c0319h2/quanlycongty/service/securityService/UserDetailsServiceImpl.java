@@ -2,7 +2,7 @@ package com.codegym.c0319h2.quanlycongty.service.securityService;
 
 
 import com.codegym.c0319h2.quanlycongty.model.User;
-import com.codegym.c0319h2.quanlycongty.repository.UserRepositoty;
+import com.codegym.c0319h2.quanlycongty.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    UserRepositoty userRepository;
+    UserRepository userRepository;
 
     @Override
     @Transactional
