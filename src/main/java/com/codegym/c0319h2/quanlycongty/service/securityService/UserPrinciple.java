@@ -1,11 +1,12 @@
-package com.codegym.backendproject.service.securityService;
+package com.codegym.c0319h2.quanlycongty.service.securityService;
 
-import com.codegym.backendproject.model.User;
+import com.codegym.c0319h2.quanlycongty.model.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -19,27 +20,29 @@ public class UserPrinciple implements UserDetails {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-
-    private String name;
-
-    private String username;
+    private String address;
+    private String userName;
+    private String avatar;
 
     private String email;
     private String phoneNumber;
-
+    private LocalDate birthDate;
     @JsonIgnore
-    private String password;
+    private String passWord;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrinciple(Long id, String name,
-                         String username, String email, String password,String phoneNumber,
+    public UserPrinciple(Long id, String userName,
+                         String address,String avatar, String email, String passWord, String phoneNumber,
+                         LocalDate birthDate,
                          Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
-        this.name = name;
-        this.username = username;
+        this.userName = userName;
         this.email = email;
-        this.password = password;
+        this.passWord = passWord;
+        this.address = address;
+        this.avatar= avatar;
+        this.birthDate = birthDate;
         this.phoneNumber = phoneNumber;
         this.authorities = authorities;
     }
@@ -51,11 +54,13 @@ public class UserPrinciple implements UserDetails {
 
         return new UserPrinciple(
                 user.getId(),
-                user.getName(),
-                user.getUsername(),
+                user.getUserName(),
                 user.getEmail(),
-                user.getPassword(),
+                user.getPassWord(),
+                user.getAddress(),
+                user.getAvatar(),
                 user.getPhoneNumber(),
+                user.getBirthDate(),
                 authorities
         );
     }
@@ -64,8 +69,8 @@ public class UserPrinciple implements UserDetails {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
     public String getEmail() {
@@ -74,12 +79,12 @@ public class UserPrinciple implements UserDetails {
 
     @Override
     public String getUsername() {
-        return username;
+        return userName;
     }
 
     @Override
     public String getPassword() {
-        return password;
+        return passWord;
     }
 
     @Override
