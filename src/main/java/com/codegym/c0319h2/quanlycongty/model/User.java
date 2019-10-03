@@ -1,6 +1,4 @@
 package com.codegym.c0319h2.quanlycongty.model;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +12,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
 @Entity
 @Table(name = "user")
 public class User {
@@ -27,27 +24,103 @@ public class User {
     @Size(min = 4,max = 50)
     private String userName;
 
-    @Size(min = 6, max = 50)
-    private String passWord;
+
 
     @Column(unique = true)
-    @Email
     private String email;
+
+//    @Size(min = 6, max = 20)
+    private String passWord;
+
     private String avatar;
     private LocalDate birthDate;
-
-    @Pattern(regexp = "/^[(][0-9]{2}[)][-][(][0][0-9]{9}[)]$/")
     private String phoneNumber;
     private String address;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
-        joinColumns = @JoinColumn(name = "user_id"),
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User(@NotBlank @Size(min = 4, max = 50) String userName, @Size(min = 6, max = 50) String passWord, @Email String email) {
+
+    public User() {
+    }
+
+    public User(@NotBlank @Size(min = 4, max = 50) String userName, String email, String passWord) {
         this.userName = userName;
-        this.passWord = passWord;
         this.email = email;
+        this.passWord = passWord;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
