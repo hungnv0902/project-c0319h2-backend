@@ -4,6 +4,8 @@ import com.codegym.c0319h2.quanlycongty.model.Role;
 import com.codegym.c0319h2.quanlycongty.model.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface RoleRepository extends JpaRepository<Role,Long> {
-    Role findRoleByName(RoleName roleName);
+    Optional<Role> findRoleByName(RoleName roleName);
 }
