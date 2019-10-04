@@ -20,10 +20,10 @@ public class JwtProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
-    @Value("${com.codegym.backendproject.jwtSecret}")
+    @Value("${com.codegym.c0319h2.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${com.codegym.backendproject.jwtExpiration}")
+    @Value("${com.codegym.c0319h2.jwtExpiration}")
     private int jwtExpiration;
 
     public String generateJwtToken(Authentication authentication) {
