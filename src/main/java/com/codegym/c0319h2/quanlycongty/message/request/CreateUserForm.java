@@ -14,9 +14,10 @@ import java.util.Set;
 public class CreateUserForm {
     @Size(min = 4,max = 50)
     private String userName;
-    @Size(min = 4,max = 50)
-    private String passWord;
     @Email
     private String email;
+    @Size(min = 4,max = 50)
+    private String passWord;
+
     private Set<String> role;
 }

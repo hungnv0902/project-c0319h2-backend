@@ -22,10 +22,8 @@ public class User {
 
     @Column( unique = true)
     @NotBlank
-    @Size(min = 4,max = 50)
     private String userName;
 
-    @Size(min = 6, max = 50)
     private String passWord;
 
     @Column(unique = true)
@@ -40,15 +38,83 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
-    public User(@NotBlank @Size(min = 4, max = 50) String userName, @Size(min = 6, max = 50) String passWord, String email) {
+    public User(@NotBlank @Size(min = 4, max = 50) String userName, String email,@Size(min = 6, max = 50) String passWord) {
         this.userName = userName;
+
+        this.email = email;
+
         this.passWord = passWord;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public User(@NotBlank @Size(min = 4, max = 50) String userName, @Size(min = 6, max = 50) String passWord, Set<Role> roles) {
-        this.userName = userName;
-        this.passWord = passWord;
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 }
